@@ -24,7 +24,6 @@ public class IdadePessoaController {
 
     @GetMapping("/{dia}/{mes}/{ano}")
     public Long retornaIdade2(@PathVariable Integer dia, @PathVariable Integer mes, @PathVariable Integer ano){
-        System.out.println(dia+mes+ano);
 
         LocalDate dataCadastro = LocalDate.of(ano, mes, dia);
         LocalDate hoje = LocalDate.now();
