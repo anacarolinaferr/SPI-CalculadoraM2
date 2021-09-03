@@ -23,4 +23,14 @@ public class QuartoService {
         }
         return listaDeQuartos.stream().max(Comparator.comparing(Quarto::getTamanho)).get();
     }
+
+    public List<Quarto> metragemQuartos(Imovel imovel) {
+        List<Quarto> quartos = new ArrayList<>();
+        listaDeQuartos = imovel.getQuartoList();
+        double calculo = 0d;
+        for (Quarto quarto : listaDeQuartos) {
+            quartos.add(new Quarto(quarto.getNome(), quarto.getLargura() * quarto.getComprimento()));
+        }
+        return quartos;
+    }
 }

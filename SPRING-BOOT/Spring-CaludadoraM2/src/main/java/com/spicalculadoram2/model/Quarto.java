@@ -4,9 +4,14 @@ import lombok.Data;
 
 @Data
 public class Quarto {
-    private Long id;
     private String nome;
     private Double largura;
     private Double comprimento;
-    private double tamanho;
+    private Double tamanho;
+    private Double metragem;
+
+    public Quarto(String nome, Double metragem) {
+        this.nome = nome;
+        this.metragem = metragem;
+    }
 }

@@ -1,5 +1,6 @@
 package com.spicalculadoram2.entity;
 
+import com.spicalculadoram2.dto.QuartoDto;
 import com.spicalculadoram2.model.Imovel;
 import com.spicalculadoram2.model.Quarto;
 import org.springframework.stereotype.Service;
@@ -51,4 +52,13 @@ public class ImovelService {
         return null;
     }
 
+    public List<Quarto> obtemMetragemByQuartos(Long id) {
+        QuartoService quartoServices = new QuartoService();
+        for (Imovel imovel : listaDeImoveis) {
+            if (imovel.getId().equals(id)) {
+                return quartoServices.metragemQuartos(imovel);
+            }
+        }
+        return null;
+    }
 }

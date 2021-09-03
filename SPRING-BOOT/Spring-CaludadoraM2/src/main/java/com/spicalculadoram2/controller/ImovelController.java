@@ -1,6 +1,7 @@
 package com.spicalculadoram2.controller;
 
 import com.spicalculadoram2.dto.ImovelDto;
+import com.spicalculadoram2.dto.QuartoDto;
 import com.spicalculadoram2.entity.ImovelService;
 import com.spicalculadoram2.model.Imovel;
 import com.spicalculadoram2.model.Quarto;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/imovel")
@@ -57,5 +59,8 @@ public class ImovelController {
         return imovelService.obtemMaiorQuarto(id);
     }
 
-
+    @GetMapping("/metrosbyquarto/{id}")
+    public List<Quarto> metrosQuadradosbyQuarto(@PathVariable("id") Long id) {
+        return imovelService.obtemMetragemByQuartos(id);
+    }
 }
